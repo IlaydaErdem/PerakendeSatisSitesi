@@ -1,0 +1,44 @@
+﻿@model IEnumerable<_29Kasim_DapperProjesi_PerakendeSatis.Models.UrunFaturaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "EY", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FaturaNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tutar)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FaturaNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UrunNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tutar)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "EY", new { id=item.UrnFtrNo } , new { @class = "btn btn-warning" }) |
+        
+        @Html.ActionLink("Sil", "Delete", new { id = item.UrnFtrNo }, new { @class = "btn btn-warning" })
+    </td>
+</tr>
+}
+
+</table>
